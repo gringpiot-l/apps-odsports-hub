@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OD体育 · 资料索引与信息整理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f1ea;
+            font-family: "Georgia", "Noto Serif SC", "Source Han Serif SC", serif;
+            color: #2e2b27;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fcfaf6;
+            padding: 3rem 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            border-left: 6px solid #b89b7a;
+            padding-left: 1.2rem;
+            margin-bottom: 1.8rem;
+            color: #2c241e;
+        }
+
+        .subhead {
+            font-size: 1rem;
+            color: #7a6b5c;
+            margin-top: -0.8rem;
+            margin-bottom: 2.5rem;
+            padding-left: 1.8rem;
+            border-bottom: 1px solid #e2d9cf;
+            padding-bottom: 1rem;
+        }
+
+        .intro-text {
+            font-size: 1.05rem;
+            text-indent: 2em;
+            margin-bottom: 1.8rem;
+        }
+
+        .directory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .dir-card {
+            background: #f6f1ea;
+            border-radius: 18px;
+            padding: 1.4rem 1.2rem 1.2rem 1.2rem;
+            transition: background 0.2s;
+        }
+
+        .dir-card:hover {
+            background: #ede5da;
+        }
+
+        .dir-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #3f352d;
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.3px;
+            border-bottom: 2px dotted #d4c3b0;
+            padding-bottom: 0.3rem;
+        }
+
+        .dir-card p {
+            font-size: 0.92rem;
+            color: #5b4e42;
+            line-height: 1.6;
+        }
+
+        .note-block {
+            background: #ede5da;
+            padding: 1.8rem 2rem;
+            border-radius: 20px;
+            margin: 2.5rem 0;
+            border-left: 6px solid #b89b7a;
+        }
+
+        .note-block h2 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #2c241e;
+            margin-bottom: 0.6rem;
+        }
+
+        .note-block p {
+            font-size: 0.98rem;
+            color: #3f352d;
+        }
+
+        .info-area {
+            margin: 2.2rem 0 1.8rem;
+            padding: 1.6rem 0;
+            border-top: 1px solid #e2d9cf;
+            border-bottom: 1px solid #e2d9cf;
+        }
+
+        .info-area h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #3f352d;
+            margin-bottom: 0.8rem;
+        }
+
+        .info-area ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-area li {
+            padding: 0.35rem 0;
+            padding-left: 1.6rem;
+            position: relative;
+            font-size: 0.98rem;
+            color: #3f352d;
+        }
+
+        .info-area li::before {
+            content: "·";
+            position: absolute;
+            left: 0.4rem;
+            color: #b89b7a;
+            font-weight: bold;
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        .faq-mini {
+            margin: 2rem 0 1rem;
+        }
+
+        .faq-mini h4 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #2c241e;
+            margin-top: 1.2rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-mini h4:first-of-type {
+            margin-top: 0.2rem;
+        }
+
+        .faq-mini p {
+            font-size: 0.95rem;
+            color: #4e4136;
+            margin-left: 0.4rem;
+            padding-left: 0.6rem;
+            border-left: 2px solid #d4c3b0;
+            padding-top: 0.1rem;
+            padding-bottom: 0.3rem;
+        }
+
+        .sentence-link {
+            font-size: 1.02rem;
+            margin: 1.8rem 0 0.8rem;
+            padding: 0.8rem 1.2rem;
+            background: #f6f1ea;
+            border-radius: 40px;
+            display: inline-block;
+        }
+
+        a {
+            color: #8b6f52;
+            text-decoration: none;
+            border-bottom: 1px solid #d4c3b0;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        a:hover {
+            color: #4f3a2a;
+            border-bottom-color: #4f3a2a;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            font-size: 0.85rem;
+            color: #9b8b7c;
+            text-align: center;
+            border-top: 1px solid #e2d9cf;
+            padding-top: 1.8rem;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .page {
+                padding: 2rem 1.2rem;
+                border-radius: 18px;
+            }
+            h1 {
+                font-size: 1.7rem;
+                padding-left: 0.8rem;
+            }
+            .directory-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .note-block {
+                padding: 1.2rem 1rem;
+            }
+            .sentence-link {
+                font-size: 0.95rem;
+                padding: 0.6rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <h1>OD体育 · 资料整理与信息索引</h1>
+        <div class="subhead">一份以梳理和归档为起点的页面 · 2025</div>
+
+        <p class="intro-text">
+            在长期接触体育资讯与平台资料的过程中，我发现信息散落各处，检索成本不低。于是便有了将核心材料按类别归档的想法，既方便自己查阅，也供有同样需求的人作一个参考。这个页面不是评测，也不是推荐，更像一个安静的目录，指向那些值得留意的内容区块。
+        </p>
+
+        <!-- 目录感布局 -->
+        <div class="directory-grid">
+            <div class="dir-card">
+                <h3>赛事与数据</h3>
+                <p>主要联赛、杯赛的赛程归档，以及历史数据索引。覆盖足球、篮球、网球等多个项目的基本信息层。</p>
+            </div>
+            <div class="dir-card">
+                <h3>平台功能说明</h3>
+                <p>有关界面操作、账户设置、投注规则等常见模块的文档摘录与功能梳理，偏向使用层面的整理。</p>
+            </div>
+            <div class="dir-card">
+                <h3>术语与规则</h3>
+                <p>体育领域常见术语、盘口概念、赔付计算方式的简明解释，适合新接触的朋友建立基本认知。</p>
+            </div>
+            <div class="dir-card">
+                <h3>相关链接归档</h3>
+                <p>经过筛选的参考来源与信息入口，包括官方站点、数据站、社区讨论板块等，保持定期更新。</p>
+            </div>
+        </div>
+
+        <!-- 说明区：引用块风格 -->
+        <div class="note-block">
+            <h2>关于本索引的使用说明</h2>
+            <p>
+                这份目录旨在提供结构化的信息入口，所有内容均来自公开可查的资料与个人整理。不构成任何形式的指导或建议，也不对任何外部平台的功能、安全性或合规性做保证。请根据自身需要，独立判断与选择。
+            </p>
+        </div>
+
+        <!-- 相关信息区 -->
+        <div class="info-area">
+            <h3>相关信息摘要</h3>
+            <ul>
+                <li>体育项目覆盖：足球、篮球、网球、电竞及其他主流赛事</li>
+                <li>信息更新频率：每月对核心链接与数据源做一次可用性检查</li>
+                <li>归档方式：按项目、赛事、功能模块三级目录组织</li>
+                <li>参考来源：赛事官网、数据聚合平台、社区经验帖</li>
+            </ul>
+        </div>
+
+        <!-- 提示区 / FAQ 摘要 -->
+        <div class="faq-mini">
+            <h4>▎常见检索方向</h4>
+            <p>如果你想了解某项赛事的赛制或历史数据，可以先从“赛事与数据”卡片入手；若是对平台功能有疑问，“平台功能说明”卡片汇总了大部分操作流程。</p>
+
+            <h4>▎术语不熟悉怎么办？</h4>
+            <p>建议先在“术语与规则”分区查找，那里用较为平实的语言整理了概念。如果仍无法解决，可以到相关社区板块提问，很多热心用户会给出解释。</p>
+
+            <h4>▎链接失效或信息过时</h4>
+            <p>由于外部站点可能调整内容或变更地址，如果发现某个链接无法打开，欢迎反馈。我会在下次更新时重新核对并替换为有效来源。</p>
+        </div>
+
+        <!-- 自然嵌入链接的句子，不出现“进入/点击/访问”等词 -->
+        <div class="sentence-link">
+            如果你希望直接浏览当前信息的最新动态，可以从 <a href="https://apps-odsports.com">od体育</a> 这个站点出发，那里聚合了不少赛事资料与平台说明，可以作为进一步了解的起点。
+        </div>
+
+        <div class="footer-note">
+            页面内容由个人整理 · 仅供信息参考 · 不构成任何形式的引导或推荐
+        </div>
+    </div>
+</body>
+</html>
